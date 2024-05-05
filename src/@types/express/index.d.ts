@@ -1,5 +1,5 @@
 
-import { IUserDTO } from "../../utils/dtos/IUserDTO";
+import { IUserDTO } from "../../modules/accounts/dtos/IUserDTO";
 
 declare global {
   namespace Express {

@@ -2,11 +2,12 @@ export interface IUserDTO {
   id?: number;
   name: string;
   email: string;
-  password: string;
   cpf: string;
   address: string;
+  avatar?: string | null;
+  password: string;
   phone: string;
-  birth_date: string;
-  avatar?: string;
-  role: 'student|teacher|parent';
+  birth_date: Date;
+  created_at?: Date;
+  updated_at?: Date;
 }

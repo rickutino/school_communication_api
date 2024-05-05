@@ -10,7 +10,7 @@ exports.up = function(knex) {
     table.string('cpf').notNullable().unique();
     table.string('address').notNullable();
     table.string('avatar').nullable();
-    table.string('password_hash').notNullable();
+    table.string('password').notNullable();
     table.string('phone').notNullable();
     table.date('birth_date').notNullable();
     table.timestamps(true, true);

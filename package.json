@@ -11,7 +11,7 @@
     "test:staged": "NODE_OPTIONS=--experimental-vm-modules npx  npm test -- --findRelatedTests",
     "test:ci": "NODE_OPTIONS=--experimental-vm-modules npx  npm test -- --coverage",
     "build": "tsc",
-    "dev:server": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts",
+    "dev:server": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
     "migrate": "knex migrate:lastest"
   },
   "keywords": [],
@@ -24,9 +24,12 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "express": "^4.19.2",
+    "express-async-errors": "^3.1.1",
     "jsonwebtoken": "^9.0.2",
     "knex": "^3.1.0",
-    "sqlite3": "^5.1.7"
+    "reflect-metadata": "^0.2.2",
+    "sqlite3": "^5.1.7",
+    "tsyringe": "^4.8.0"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
