@@ -8,7 +8,7 @@ class UserRepository implements IUsersRepository{
     await knex('users').insert(userData);
   }
 
-  async findByEmail(email: string): Promise<User> {
+  async findByEmail(email: string): Promise<User | undefined> {
     const user = await knex("users").where({ email }).first();
 
     return user;

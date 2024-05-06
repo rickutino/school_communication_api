@@ -4,7 +4,7 @@ import { compare, hash } from "bcryptjs";
 import auth from "../config/auth";
 import { sign } from "jsonwebtoken";
 
-import { IUserDTO } from '../utils/dtos/IUserDTO';
+import { IUserDTO } from '../modules/accounts/dtos/IUserDTO';
 import { AppError } from '../utils/AppError';
 
 const users: IUserDTO[] = [];
@@ -28,7 +28,6 @@ export const register = async (req: Request, res: Response): Promise<Response> =
     address,
     birth_date,
     phone,
-    role,
   };
   users.push(user);
 

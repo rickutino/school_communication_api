@@ -1,15 +1,15 @@
 interface User {
-  id: number;
+  id?: number;
   name: string;
   email: string;
   cpf: string;
   address: string;
   avatar?: string | null;
-  password_hash: string;
+  password: string;
   phone: string;
   birth_date: Date;
-  created_at: Date;
-  updated_at: Date;
+  created_at?: Date;
+  updated_at?: Date;
 }
 
 export default User;

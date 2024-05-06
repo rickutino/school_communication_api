@@ -10,7 +10,9 @@ const config: Config = {
   transform: {
     '.+\\.ts$': 'ts-jest'
   },
-  coverageProvider: 'v8'
+  coverageProvider: 'v8',
+  preset: "ts-jest",
+  testMatch: ["<rootDir>/src/__tests__/**/*.spec.ts"],
 };
 
 export default config;

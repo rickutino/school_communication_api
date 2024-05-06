@@ -1,6 +1,5 @@
+// hash build by md5
 export default {
-  jwt: {
-    secretToken: "31416944e2b7d995fb1e846233f157d5",
-    expiresIn: "1d",
-  }
+  secret_token: "518eefa1df679e103bc4ac57a12df2c1",  
+  expires_in_token: "15m",
 }
