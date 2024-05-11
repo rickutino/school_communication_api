@@ -3,19 +3,29 @@ import { IUserDTO } from "../../../../../modules/accounts/dtos/IUserDTO";
 import { AuthenticateUserUseCase } from "../../../../../modules/accounts/useCase/authenticateUser/AuthenticateUseCase";
 import { UsersRepositoryInMemory } from "../../in-memory/UsersRepositoryInMemory";
 import { AppError } from "../../../../../utils/AppError";
+import { TransactionService } from "src/shared/container/services/Transaction/implementations/TransactionService";
+import StudentRepository from "src/modules/accounts/infra/knex/repositories/StudentRepository";
 
 
 let authenticateUserUseCase: AuthenticateUserUseCase;
 let createUserUseCase: CreateUserUseCase;
 let usersRepositoryInMemory: UsersRepositoryInMemory;
+let transactionService: TransactionService;
+let studentRepository: StudentRepository;
 
 describe("Authenticate User", () => {
   beforeEach(() => {
     usersRepositoryInMemory = new UsersRepositoryInMemory();
+    transactionService = new TransactionService();
+    studentRepository = new StudentRepository()
     authenticateUserUseCase = new AuthenticateUserUseCase(
       usersRepositoryInMemory
     );
-    createUserUseCase = new CreateUserUseCase(usersRepositoryInMemory);
+    createUserUseCase = new CreateUserUseCase(
+      usersRepositoryInMemory,
+      studentRepository,
+      transactionService
+    );
   });
 
   it("should be able to authenticate an user", async () => {

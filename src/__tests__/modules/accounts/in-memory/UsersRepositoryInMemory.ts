@@ -1,10 +1,9 @@
 import { IUserDTO } from "../../../../modules/accounts/dtos/IUserDTO";
-import User from "../../../../modules/accounts/infra/knex/entities/User";
 import { IUsersRepository } from "../../../../modules/accounts/repositories/IUserRepository";
 
 
 class UsersRepositoryInMemory implements IUsersRepository {
-  users: User[] = [];
+  users: IUserDTO[] = [];
 
   async create({
     name,
@@ -14,7 +13,7 @@ class UsersRepositoryInMemory implements IUsersRepository {
     address,
     phone,
     birth_date
-  }: IUserDTO): Promise<void> {
+  }: IUserDTO): Promise<IUserDTO | undefined> {
     const user: IUserDTO = {
       name,
       password,
@@ -26,9 +25,11 @@ class UsersRepositoryInMemory implements IUsersRepository {
     }
 
     this.users.push(user);
+
+    return user;
   }
 
-  async findByEmail(email: string): Promise<User | undefined> {
+  async findByEmail(email: string): Promise<IUserDTO | undefined> {
     return this.users.find((user) => user!.email === email);
   }
 }

@@ -1,5 +1,5 @@
 export interface ITeacherDTO {
-  id: number;
+  id?: number;
   user_id: number;
   discipline: string
 }

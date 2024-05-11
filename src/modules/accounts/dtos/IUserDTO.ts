@@ -8,6 +8,7 @@ export interface IUserDTO {
   password: string;
   phone: string;
   birth_date: Date;
+  role?:'student' | 'teacher' | 'parent',
   created_at?: Date;
   updated_at?: Date;
 }
